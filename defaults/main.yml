@@ -1,4 +1,5 @@
 ## roles/ansible-role-powerline/defaults/main.yml
 # vim:ft=ansible:
 ---
+prompt_color: "b16:dylw"
 ...
