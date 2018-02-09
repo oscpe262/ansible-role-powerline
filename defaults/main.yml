@@ -1,0 +1,4 @@
+## roles/ansible-role-powerline/defaults/main.yml
+# vim:ft=ansible:
+---
+...

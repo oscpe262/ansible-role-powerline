@@ -1,0 +1,38 @@
+## roles/ansible-role-powerline/tasks/Fedora.yml
+# vim:ft=ansible:
+---
+- name: Install Powerline Packages
+  package:
+     name: '{{ item }}'
+     state: present
+  with_items:
+    - python3-pip
+    - tmux-powerline
+    - powerline
+    - powerline-fonts
+  
+- name: Source powerline
+  lineinfile:
+    path: '{{ item.value }}{{ item.key }}/.zshrc'
+    line: source /usr/share/powerline/zsh/powerline.zsh
+    state: present
+    insertafter: EOF
+  with_dict: '{{ userlist }}'
+  ignore_errors: yes
+
+- name: Powerline Git-status
+  pip:
+    name: powerline-status
+    executable: pip3
+
+- name: Powerline colors
+  template:
+    src: 'powerline/config_files/{{ item }}.j2'
+    dest: '/usr/lib/python3.6/site-packages/powerline/{{ item }}'
+  with_items:
+    - 'colors.json'
+    - 'colorschemes/default.json'
+    - 'colorschemes/shell/default.json'
+    - 'themes/shell/default.json'
+    - 'themes/shell/__main__.json'
+...

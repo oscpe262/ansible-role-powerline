@@ -1,0 +1,6 @@
+## ansible-role-powerline
+# This is just a placeholder to not interrupt runs on unsupported distros.
+---
+- debug:
+    msg: "{{ ansible_distribution }} is currently not supported by this role. Please contribute!"
+...
