@@ -25,6 +25,15 @@
     name: powerline-status
     executable: pip3
 
+- name: Make sure directories exist
+  file:
+    state: directory
+    path: /usr/lib/python3.6/site-packages/powerline/{{ item }}
+    mode: 0744
+  with_items:
+    - '/colorschemes/shell'
+    - '/themes/shell'
+
 - name: Powerline colors
   template:
     src: 'powerline/config_files/{{ item }}.j2'
