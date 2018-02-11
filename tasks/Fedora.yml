@@ -19,11 +19,13 @@
     insertafter: EOF
   with_dict: '{{ userlist }}'
   ignore_errors: yes
+  notify: Restart powerline-daemon
 
 - name: Powerline Git-status
   pip:
     name: powerline-status
     executable: pip3
+  notify: Restart powerline-daemon
 
 - name: Make sure directories exist
   file:
@@ -33,6 +35,7 @@
   with_items:
     - '/colorschemes/shell'
     - '/themes/shell'
+  notify: Restart powerline-daemon
 
 - name: Powerline colors
   template:
@@ -44,4 +47,7 @@
     - 'colorschemes/shell/default.json'
     - 'themes/shell/default.json'
     - 'themes/shell/__main__.json'
+  notify: Restart powerline-daemon
+
+
 ...
