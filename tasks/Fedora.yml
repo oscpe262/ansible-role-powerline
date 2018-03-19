@@ -31,7 +31,7 @@
   file:
     state: directory
     path: /usr/lib/python3.6/site-packages/powerline/{{ item }}
-    mode: 0744
+    mode: 0755
   with_items:
     - '/colorschemes/shell'
     - '/themes/shell'
