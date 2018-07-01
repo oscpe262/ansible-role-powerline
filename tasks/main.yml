@@ -1,5 +1,5 @@
 ## roles/ansible-role-powerline/tasks/main.yml
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 - include_tasks: '{{ pl_distro }}'
   with_first_found:

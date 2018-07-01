@@ -1,5 +1,5 @@
 ## roles/ansible-role-powerline/handlers/main.yml
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 - name: Restart powerline-daemon
   service:
